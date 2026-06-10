@@ -27,6 +27,7 @@ function version_lt() { [[ "$1" = "$2" ]] && return 1 || version_le "$1" "$2"; }
 
 GCLOUD_SDK_VERSION="$(gcloud --version | awk -F'SDK ' '/Google Cloud SDK/ {print $2}')"
 GSUTIL="gcloud storage"
+GSUTIL_OPTS=""
 if version_lt "${GCLOUD_SDK_VERSION}" "402.0.0"; then
   GSUTIL="gsutil"
   GSUTIL_OPTS="-m"
