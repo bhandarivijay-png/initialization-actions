@@ -62,6 +62,6 @@ for file in "${MODULE}/"*.sh; do
   fi
 done
 
-${GSUTIL} rsync ${GSUTIL_OPTS} -R -x "__pycache__/.*" "${MODULE}/" "${GCS_FOLDER}"
+${GSUTIL} ${GSUTIL_OPTS} rsync -R -x "__pycache__/.*" "${MODULE}/" "${GCS_FOLDER}"
 
 echo "Pushed ${MODULE}/ to ${GCS_FOLDER}."
